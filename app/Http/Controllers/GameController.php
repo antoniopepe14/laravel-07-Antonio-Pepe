@@ -41,9 +41,10 @@ class GameController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Game $game)
+    public function show($id)
     {
-        //
+        $data = Game::find($id);
+        return view('detail',compact('data'));
     }
 
     /**

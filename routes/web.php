@@ -23,3 +23,5 @@ Route::get('/game/create', [GameController::class, 'create'])->name('game.create
 Route::post('/game/store',  [GameController::class, 'store'])->name('game.store');
 // rotta per elenco Game
 Route::get('/games', [GameController::class, 'index'])->name('index.game');
+// rotta per il dettaglio
+Route::get('/game/detail/{id}', [GameController::class, 'show'])->name('show.game');
