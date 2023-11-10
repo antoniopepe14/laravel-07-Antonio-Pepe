@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use Illuminate\Http\Request;
+use App\Http\Requests\GameStorerequest;
 
 class GameController extends Controller
 {
@@ -27,7 +28,7 @@ class GameController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(GameStorerequest $request)
     {
         Game::create([
             'title'=>$request->title,
