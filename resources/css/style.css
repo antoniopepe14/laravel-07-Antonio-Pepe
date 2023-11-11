@@ -5,3 +5,29 @@
     object-position: cover;
     object-fit: contain;
 }
+.imgcostum{
+    height: 50px !important;
+    width: 40px !important;
+} 
+header{
+    
+    background:linear-gradient(0deg, rgba(0,0,0,0.8215861344537815) 37%, rgba(0,0,0,0.6222864145658263) 100%), url(../../public/media/img-bg2.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    
+    
+}
+.card{
+    background-color: #07000040;
+}
+.imgbg{
+    background-image: url('/public/media/imgbg3.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+}
+.text-link{
+    color: aquamarine !important;
+}

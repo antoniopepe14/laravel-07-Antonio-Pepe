@@ -1,10 +1,24 @@
-<x-layout>
+<x-layout title="">
 
-<header>
+    <header class="container-fluid vh-100 mt-5 pt-5 ">
+        <div class="row justify-content-md-center align-content-center">
+            <div class="col-12 col-md-4 d-flex justify-content-center">
+                <h1 class="text-danger ">Republic Of Gamers</h1>
+            </div>
+        </div>
     
-    <h1 class="text-center">GameUP</h1>
-    
-</header>
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                @if (session()->has('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
 
 
 

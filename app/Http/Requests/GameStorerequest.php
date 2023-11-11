@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\GameStorerequest;
 use Illuminate\Foundation\Http\FormRequest;
 
 class GameStorerequest extends FormRequest
@@ -26,17 +25,17 @@ class GameStorerequest extends FormRequest
             "title"=> "required|min:2",
             "description"=> "required",
             "price"=> "required|integer",
-            "img"=> "images"
+            "img"=> "image"
         ];
     }
-    public function message(){
+    public function messages(){
         return [
             "title.required"=>'Campo Obbligatorio',
             "title.min"=>'Il titolo deve contenere almeno due caratteri',
             "description.required"=>'Campo Obbligatorio',
             "price.required"=>'Campo Obbligatorio',
             "price.integer"=>'Il prezzo deve essere intero',
-            "img.images"=>'Il file deve essere un immagine',
+            "img.image"=>'Il file deve essere un immagine'
         ];
     }
 }

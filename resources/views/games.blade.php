@@ -1,9 +1,7 @@
-<x-layout>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-8-md-4-sm-12 d-flex justify-content-center"> 
+<x-layout title="Elenco Game">
+    <div class="container-fluid mt-5 pt-5 ">
+        <div class="row"> 
                 <h1 class="text-center">Games</h1>
-            </div>
             @foreach ($games as $game)
             <x-card :data="$game" route="game"/>
             @endforeach
