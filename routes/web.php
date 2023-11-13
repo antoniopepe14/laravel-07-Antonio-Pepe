@@ -24,4 +24,9 @@ Route::post('/game/store',  [GameController::class, 'store'])->name('game.store'
 // rotta per elenco Game
 Route::get('/games', [GameController::class, 'index'])->name('index.game');
 // rotta per il dettaglio
-Route::get('/game/detail/{id}', [GameController::class, 'show'])->name('show.game');
+Route::get('/game/detail/{data}', [GameController::class, 'show'])->name('show.game');
+// rotta per la modifica
+Route::get('/game/edit/{data}', [GameController::class, 'edit'])->name('edit.game');
+Route::put('/game/update/{data}',[GameController::class, 'update'])->name('update.game');
+// rotta per la cancrllazione record
+Route::delete('/game/delete/{data}',[GameController::class, 'destroy'])->name('destroy.game');

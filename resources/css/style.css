@@ -1,5 +1,4 @@
 .img-card{
-    width: '';
     height: 340px;
     aspect-ratio: 1/1;
     object-position: cover;
@@ -18,7 +17,7 @@ header{
     
     
 }
-.card{
+.my-card{
     background-color: #07000040;
 }
 .imgbg{
@@ -30,4 +29,7 @@ header{
 }
 .text-link{
     color: aquamarine !important;
+}
+.link-a{
+    width: 80px !important;
 }
