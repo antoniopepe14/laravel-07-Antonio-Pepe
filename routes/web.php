@@ -30,3 +30,6 @@ Route::get('/game/edit/{data}', [GameController::class, 'edit'])->name('edit.gam
 Route::put('/game/update/{data}',[GameController::class, 'update'])->name('update.game');
 // rotta per la cancrllazione record
 Route::delete('/game/delete/{data}',[GameController::class, 'destroy'])->name('destroy.game');
+// rotta per il form email
+Route::get('contact-us',[PublicController::class, 'form'] )->name('form');
+Route::post('/contact-email', [PublicController::class, 'sendEmail'])->name('send.email');

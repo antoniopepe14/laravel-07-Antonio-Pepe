@@ -13,13 +13,14 @@
                     <a class="nav-link text-link link-a" href="{{route('index.game')}}">Elenco Game</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-link" href="">Contattaci</a>
+                    <a class="nav-link text-link" href="{{route('form')}}">Contattaci</a>
                 </li>
                 @auth      
                 <li class="nav-item dropdown">  
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
                     aria-expanded="false">        
-                    {{Auth::user()->name}}             </a>  
+                    {{Auth::user()->name}}              
+                    </a>  
                     
                     <ul class="dropdown-menu">      
                         <li><a class="dropdown-item navbar-a" href="{{route('game.create')}}">Crea Gioco</a></li> 

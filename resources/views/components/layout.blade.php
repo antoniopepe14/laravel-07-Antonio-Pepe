@@ -6,13 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@if(!@empty($title)){{$title}} @else home @endif</title>
     @vite(['resources/css/app.css','resources/js/app.js'])
+    {{$style??''}}
 </head>
-<body>
+<body class="header">
     <x-navbar/>
-
-
-    {{$slot}}
-
-
+    
+    {{-- <div class="container-fluid vh-100">
+         --}}
+        {{$slot}}
+    {{-- </div> --}}
+{{--     
+    @if(!Route::currentRouteName()=='home') --}}
+    <x-footer/>
+    {{-- @endif --}}
 </body>
+
+
+
+
 </html>

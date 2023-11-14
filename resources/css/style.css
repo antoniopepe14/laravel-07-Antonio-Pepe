@@ -8,7 +8,7 @@
     height: 50px !important;
     width: 40px !important;
 } 
-header{
+/* .header{
     
     background:linear-gradient(0deg, rgba(0,0,0,0.8215861344537815) 37%, rgba(0,0,0,0.6222864145658263) 100%), url(../../public/media/img-bg2.jpg);
     background-repeat: no-repeat;
@@ -16,7 +16,7 @@ header{
     background-size: cover;
     
     
-}
+} */
 .my-card{
     background-color: #07000040;
 }
