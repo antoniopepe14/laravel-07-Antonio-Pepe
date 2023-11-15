@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Game;
 use Illuminate\Http\Request;
 use App\Http\Requests\GameStorerequest;
 
 class GameController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth')->except('index');
+
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -22,7 +28,8 @@ class GameController extends Controller
      */
     public function create()
     {
-        return view('game.create');
+        $categories= Category::all();
+        return view('game.create', compact('categories'));
     }
 
     /**
@@ -34,7 +41,8 @@ class GameController extends Controller
             'title'=>$request->title,
             'description'=>$request->description,
             'price'=>$request->price,
-            'img'=> $request->img ? $request->img->store('public/images') : 'public/images/default.png'
+            'img'=> $request->img ? $request->img->store('public/images') : 'public/images/default.png',
+            "category_id"=> $request->category_id
         ]);
          return redirect()->route('game.create')->with('success', 'Gioco aggiunto con successo!');
     }
@@ -65,7 +73,8 @@ class GameController extends Controller
             'title'=>$request->title,
             'description'=>$request->description,
             'price'=>$request->price,
-            'img'=> $request->img ? $request->img->store('public/images') : 'public/images/default.png'
+            'img'=> $request->img ? $request->img->store('public/images') : 'public/images/default.png',
+            "category_id"=> $request->category_id
         ]);
         return redirect()->route('edit.game', compact('data'))->with('success', 'Gioco modificato con successo!');
     }
@@ -78,4 +87,11 @@ class GameController extends Controller
         $data->delete();
         return redirect()->route('index.game')->with('success', 'Gioco eliminato con successo!');
     }
+
+    public function filterByCategory(Category $category){
+        return view('game.filterByCategory',compact('category'));
+    }
+
+
+    
 }

@@ -33,3 +33,5 @@ Route::delete('/game/delete/{data}',[GameController::class, 'destroy'])->name('d
 // rotta per il form email
 Route::get('contact-us',[PublicController::class, 'form'] )->name('form');
 Route::post('/contact-email', [PublicController::class, 'sendEmail'])->name('send.email');
+// rotta per il filtro per categoria
+Route::get('/games/category/{category}', [GameController::class, 'filterByCategory'])->name('game.filterByCategory');

@@ -33,3 +33,8 @@
 .link-a{
     width: 80px !important;
 }
+.category_a{
+    display: block;
+    text-decoration:none ;
+    color: red;
+}

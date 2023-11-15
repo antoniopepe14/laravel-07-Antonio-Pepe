@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-12">
                 @if (session()->has('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
                 @endif
             </div>
             <div class="col-8">
@@ -26,6 +26,16 @@
                         <label for="description" class="form-label">Description</label>
                         <textarea class="form-control" name="description" id="description" @error('description') is-invalid @enderror cols="20" rows="10">{{old('title')}}</textarea>
                         @error ('description'){{$message}} @enderror
+                    </div>
+                    <div class="mb-3 form-check">
+                        <label for="category_id" class="form-label">price</label>
+                        <select class="form-select" aria-label="Default select example" name="category_id">
+                            <option selected>Open this select menu</option>
+                            @foreach ($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
+                        </select>
+                        @error ('category_id'){{$message}} @enderror
                     </div>
                     <div class="mb-3 form-check">
                         <input name="img" type="file" class="form-control" >
