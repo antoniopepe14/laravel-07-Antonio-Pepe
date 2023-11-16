@@ -24,8 +24,9 @@ class GameStorerequest extends FormRequest
         return [
             "title"=> "required|min:2",
             "description"=> "required",
-            "price"=> "required|integer",
-            "img"=> "image"
+            "price"=> "required|decimal:0,2",
+            "img"=> "image",
+            "category_id"=>'required'
         ];
     }
     public function messages(){
@@ -34,7 +35,7 @@ class GameStorerequest extends FormRequest
             "title.min"=>'Il titolo deve contenere almeno due caratteri',
             "description.required"=>'Campo Obbligatorio',
             "price.required"=>'Campo Obbligatorio',
-            "price.integer"=>'Il prezzo deve essere intero',
+            "price.decimal"=>'Il prezzo deve essere con due cifre decimali',
             "img.image"=>'Il file deve essere un immagine'
         ];
     }

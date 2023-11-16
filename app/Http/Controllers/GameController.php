@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Game;
+use App\Models\Console;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\GameStorerequest;
 
@@ -29,7 +30,8 @@ class GameController extends Controller
     public function create()
     {
         $categories= Category::all();
-        return view('game.create', compact('categories'));
+        $consoles= Console::all();
+        return view('game.create', compact('categories','consoles'));
     }
 
     /**
@@ -37,13 +39,16 @@ class GameController extends Controller
      */
     public function store(GameStorerequest $request)
     {
-        Game::create([
+        
+        $data= Game::create([
             'title'=>$request->title,
             'description'=>$request->description,
             'price'=>$request->price,
             'img'=> $request->img ? $request->img->store('public/images') : 'public/images/default.png',
-            "category_id"=> $request->category_id
+            "category_id"=> $request->category_id,
         ]);
+
+        $data->consoles()->attach($request->console);
          return redirect()->route('game.create')->with('success', 'Gioco aggiunto con successo!');
     }
 
@@ -61,7 +66,9 @@ class GameController extends Controller
      */
     public function edit(Game $data)
     {
-        return view('game.edit', compact('data'));
+        $categories= Category::all();
+        $consoles=Console::all();
+        return view('game.edit', compact('data','categories','consoles'));
     }
 
     /**
@@ -76,6 +83,8 @@ class GameController extends Controller
             'img'=> $request->img ? $request->img->store('public/images') : 'public/images/default.png',
             "category_id"=> $request->category_id
         ]);
+        $data->consoles()->detach();
+        $data->consoles()->attach($request->console);
         return redirect()->route('edit.game', compact('data'))->with('success', 'Gioco modificato con successo!');
     }
 
@@ -84,6 +93,9 @@ class GameController extends Controller
      */
     public function destroy(Game $data)
     {
+        foreach($data->consoles as $console){
+            $data->consoles()->detach($console);
+        }
         $data->delete();
         return redirect()->route('index.game')->with('success', 'Gioco eliminato con successo!');
     }

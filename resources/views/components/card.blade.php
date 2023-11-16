@@ -4,6 +4,12 @@
     <div class="card-body">
         <h5 class="card-title text-center ">{{$data->title}}</h5>
         <a class="category_a text-center" href="{{route('game.filterByCategory',["category"=>$data->category])}}">{{$data->category->name}}</a>
+        <div class="my-2 text-center ">
+            @foreach ($data->consoles as $console)
+            <a class="console-a" href="">{{$console->name}}</a>
+                
+            @endforeach
+        </div>
         @auth  
         <div class="d-flex justify-content-around mt-2 ">
             <a href="{{route('show.game',compact('data'))}}" class="btn btn-primary mx-2">Vai al gioco</a>
