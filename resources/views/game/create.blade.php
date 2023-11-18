@@ -27,7 +27,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">Price</label>
-                        <input name="price" type="string" class="form-control" id="price" @error('price') is-invalid @enderror value="{{old('title')}}" >
+                        <input name="price" type="string" class="form-control" id="price" @error('price') is-invalid @enderror value="{{old('price')}}" >
                         @error ('price'){{$message}} @enderror
                     </div>
                     <div class="mb-3">

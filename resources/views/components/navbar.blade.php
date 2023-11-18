@@ -10,7 +10,7 @@
                     <a class="nav-link text-danger active ms-5 ps-5" aria-current="page" href="{{route('home')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-link link-a" href="{{route('index.game')}}">Elenco Game</a>
+                    <a class="nav-link text-link link-a" href="{{route('index.game')}}"> Games</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-link" href="{{route('form')}}">Contattaci</a>
